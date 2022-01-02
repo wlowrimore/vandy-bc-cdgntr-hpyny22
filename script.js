@@ -25,6 +25,13 @@ const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numeric = "0123456789";
 const specialChar = "!@#$%^&*()-_=+{}[].:;|\/?<>";
 
+function randSample(chars) {
+  const charLength = chars.length;
+  const rand = Math.random() * charLength;
+  const index = Math.floor(rand);
+  return chars[index];
+}
+
 // Get the requested length of password between 8 and 128 characters
 function getLength() {
   const passLength = window.prompt("Enter a number between 8 and 128 to set your password length");
@@ -64,6 +71,24 @@ function getTypes() {
   }
   return types;
 }
+
+
+function generatePassword() {
+  const passLength = getLength();
+  var passTypes = getTypes();
+  
+  while (passTypes.length === 0) {
+    alert("You must choose at least one character type!");
+    passTypes = getTypes();
+  }
+
+  var password = "";
+
+  return password;
+
+
+}
+
   
 
 
