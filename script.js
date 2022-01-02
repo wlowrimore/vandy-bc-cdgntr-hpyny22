@@ -34,16 +34,17 @@ function randSample(chars) {
 
 // Get the requested length of password between 8 and 128 characters
 function getLength() {
-  const passLength = window.prompt("Enter a number between 8 and 128 to set your password length");
+  var passLength = window.prompt("Enter a number between 8 and 128 to set your password length");
+  passLength = parseInt(passLength);
 
   if (passLength < 8) {
-    alert.prompt("password length must be at least 8 characters");
+    window.prompt("password length must be at least 8 characters");
     return getLength(); 
   } else if (passLength > 128) {
-    alert.prompt("password length must be less no more than 128 characters");
+    window.prompt("password length must be less no more than 128 characters");
     return getLength();
-  } else if (!Number.isInteger(passLength)){
-    alert.prompt("INVALID ENTRY! PLEASE ENTER A NUMBER BETWEEN 8 AND 128");
+  } else if (isNaN(passLength)) {
+    window.prompt("INVALID ENTRY! PLEASE ENTER A NUMBER BETWEEN 8 AND 128");
     return getLength();
   }
     return passLength;
@@ -83,24 +84,45 @@ function generatePassword() {
   }
 
   var password = "";
+  const typeCollection = [];
+  if (passTypes.includes("lowerCase")) {
+    password = password + randSample(lowerCase);
+    typeCollection.push(lowerCase);
+  }
+  if (passTypes.includes("upperCase")) {
+    password = password + randSample(upperCase);
+    typeCollection.push(upperCase);
+  }
+  if (passTypes.includes("numbers")) {
+    password = password + randSample(numeric);
+    typeCollection.push(numeric);
+  }
+  if (passTypes.includes("symbols")) {
+    password = password + randSample(specialChar);
+    typeCollection.push(specialChar);
+  }
 
+  
+
+  while (password.length < passLength) {
+    let typeString = randSample(typeCollection);
+    password = password + randSample(typeString);
+  }
   return password;
-
-
 }
 
   
 
 
 // Write password to the #password input
-// function writePassword() {
-//   var password = ""();
-//   password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+function writePassword() {
+  
+  const password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
-// }
+}
 
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
