@@ -6,6 +6,6 @@ In this challenge I was given a starting HTML, CSS, and JS markup to create a ra
 
 <image src= "assets\images\landing_page-CG.png" alt ="Code Generator Landing Page"/>
 
-<a href= "https://github.com/wlowrimore/vandy-bc-cdgntr-hpyny22" target= "_blank" rel= "noreferrer">GitHub</a>
+<a href= "https://github.com/wlowrimore/vandy-bc-cdgntr-hpyny22" target= "_blank" rel= "noreferrer">GitHub Page</a>
 
 <a href= "https://wlowrimore.github.io/vandy-bc-cdgntr-hpyny22/" target= "_blank" rel= "noreferrer">Deployed Page</a>
