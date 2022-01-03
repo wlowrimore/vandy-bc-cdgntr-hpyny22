@@ -18,8 +18,6 @@
 
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
-
-
 const lowerCase = "abcdefghijklmnopqrstuvwxyz";
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numeric = "0123456789";
@@ -41,7 +39,7 @@ function getLength() {
     window.prompt("password length must be at least 8 characters");
     return getLength(); 
   } else if (passLength > 128) {
-    window.prompt("password length must be less no more than 128 characters");
+    window.prompt("password length must be no more than 128 characters");
     return getLength();
   } else if (isNaN(passLength)) {
     window.prompt("INVALID ENTRY! PLEASE ENTER A NUMBER BETWEEN 8 AND 128");
@@ -73,7 +71,7 @@ function getTypes() {
   return types;
 }
 
-
+// Generate password by collecting characters
 function generatePassword() {
   const passLength = getLength();
   var passTypes = getTypes();
